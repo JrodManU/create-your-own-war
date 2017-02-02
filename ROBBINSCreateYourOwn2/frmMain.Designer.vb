@@ -36,6 +36,8 @@ Partial Class War
         Me.btnExit = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblWarName = New System.Windows.Forms.Label()
+        Me.lblPlayer1Army = New System.Windows.Forms.Label()
+        Me.lblPlayer2Army = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -66,6 +68,7 @@ Partial Class War
         'rdoOrc
         '
         Me.rdoOrc.AutoSize = True
+        Me.rdoOrc.Checked = True
         Me.rdoOrc.Location = New System.Drawing.Point(6, 19)
         Me.rdoOrc.Name = "rdoOrc"
         Me.rdoOrc.Size = New System.Drawing.Size(42, 17)
@@ -117,9 +120,9 @@ Partial Class War
         Me.chkRandomMeteors.AutoSize = True
         Me.chkRandomMeteors.Location = New System.Drawing.Point(3, 62)
         Me.chkRandomMeteors.Name = "chkRandomMeteors"
-        Me.chkRandomMeteors.Size = New System.Drawing.Size(106, 17)
+        Me.chkRandomMeteors.Size = New System.Drawing.Size(101, 17)
         Me.chkRandomMeteors.TabIndex = 2
-        Me.chkRandomMeteors.Text = "&Random meteors"
+        Me.chkRandomMeteors.Text = "Random &deaths"
         Me.chkRandomMeteors.UseVisualStyleBackColor = True
         '
         'chkDoubleDamage
@@ -127,9 +130,9 @@ Partial Class War
         Me.chkDoubleDamage.AutoSize = True
         Me.chkDoubleDamage.Location = New System.Drawing.Point(3, 39)
         Me.chkDoubleDamage.Name = "chkDoubleDamage"
-        Me.chkDoubleDamage.Size = New System.Drawing.Size(101, 17)
+        Me.chkDoubleDamage.Size = New System.Drawing.Size(88, 17)
         Me.chkDoubleDamage.TabIndex = 1
-        Me.chkDoubleDamage.Text = "Double &damage"
+        Me.chkDoubleDamage.Text = "Change &rows"
         Me.chkDoubleDamage.UseVisualStyleBackColor = True
         '
         'chkDoubleMoney
@@ -137,9 +140,9 @@ Partial Class War
         Me.chkDoubleMoney.AutoSize = True
         Me.chkDoubleMoney.Location = New System.Drawing.Point(3, 16)
         Me.chkDoubleMoney.Name = "chkDoubleMoney"
-        Me.chkDoubleMoney.Size = New System.Drawing.Size(94, 17)
+        Me.chkDoubleMoney.Size = New System.Drawing.Size(95, 17)
         Me.chkDoubleMoney.TabIndex = 0
-        Me.chkDoubleMoney.Text = "Double &money"
+        Me.chkDoubleMoney.Text = "Change &speed"
         Me.chkDoubleMoney.UseVisualStyleBackColor = True
         '
         'btnStart
@@ -163,25 +166,44 @@ Partial Class War
         'Label2
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label2.Location = New System.Drawing.Point(9, 112)
+        Me.Label2.Location = New System.Drawing.Point(9, 129)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(848, 330)
+        Me.Label2.Size = New System.Drawing.Size(848, 313)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Label2"
         '
         'lblWarName
         '
         Me.lblWarName.AutoSize = True
-        Me.lblWarName.Location = New System.Drawing.Point(9, 99)
+        Me.lblWarName.Location = New System.Drawing.Point(369, 116)
         Me.lblWarName.Name = "lblWarName"
         Me.lblWarName.Size = New System.Drawing.Size(0, 13)
         Me.lblWarName.TabIndex = 8
+        '
+        'lblPlayer1Army
+        '
+        Me.lblPlayer1Army.AutoSize = True
+        Me.lblPlayer1Army.Location = New System.Drawing.Point(9, 116)
+        Me.lblPlayer1Army.Name = "lblPlayer1Army"
+        Me.lblPlayer1Army.Size = New System.Drawing.Size(29, 13)
+        Me.lblPlayer1Army.TabIndex = 9
+        Me.lblPlayer1Army.Text = "Orcs"
+        '
+        'lblPlayer2Army
+        '
+        Me.lblPlayer2Army.AutoSize = True
+        Me.lblPlayer2Army.Location = New System.Drawing.Point(811, 116)
+        Me.lblPlayer2Army.Name = "lblPlayer2Army"
+        Me.lblPlayer2Army.Size = New System.Drawing.Size(46, 13)
+        Me.lblPlayer2Army.TabIndex = 11
+        Me.lblPlayer2Army.Text = "Humans"
         '
         'War
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(869, 462)
+        Me.Controls.Add(Me.lblPlayer2Army)
+        Me.Controls.Add(Me.lblPlayer1Army)
         Me.Controls.Add(Me.lblWarName)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnExit)
@@ -217,4 +239,6 @@ Partial Class War
     Friend WithEvents btnExit As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents lblWarName As Label
+    Friend WithEvents lblPlayer1Army As Label
+    Friend WithEvents lblPlayer2Army As Label
 End Class

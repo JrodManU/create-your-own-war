@@ -2,9 +2,8 @@
 Option Explicit On
 
 Public Class Player
-    Private health As Integer
-    Private position As Integer
-    Public Sub New(ByVal health As Integer, ByVal position As Integer)
+    Private health, position, rock, paper, scissors As Integer
+    Public Sub New(ByVal health As Integer, ByVal position As Integer, ByVal rock As Integer, ByVal paper As Integer, ByVal scissors As Integer)
         Me.health = health
         Me.position = position
     End Sub
@@ -26,5 +25,14 @@ Public Class Player
 
     Public Function getPosition() As Integer
         Return position
+    End Function
+    Public Function getRock() As Integer
+        Return rock
+    End Function
+    Public Function getPaper() As Integer
+        Return paper
+    End Function
+    Public Function getScissors() As Integer
+        Return scissors
     End Function
 End Class

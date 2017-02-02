@@ -22,6 +22,7 @@ Partial Class War
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.rdoHuman = New System.Windows.Forms.RadioButton()
         Me.rdoOrc = New System.Windows.Forms.RadioButton()
@@ -29,15 +30,16 @@ Partial Class War
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtWarName = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.chkRandomMeteors = New System.Windows.Forms.CheckBox()
-        Me.chkDoubleDamage = New System.Windows.Forms.CheckBox()
-        Me.chkDoubleMoney = New System.Windows.Forms.CheckBox()
+        Me.chkRandomDeaths = New System.Windows.Forms.CheckBox()
+        Me.chkChangeRows = New System.Windows.Forms.CheckBox()
+        Me.chkChangeSpeed = New System.Windows.Forms.CheckBox()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblWarName = New System.Windows.Forms.Label()
         Me.lblPlayer1Army = New System.Windows.Forms.Label()
         Me.lblPlayer2Army = New System.Windows.Forms.Label()
+        Me.tmrGameTick = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -105,9 +107,9 @@ Partial Class War
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.chkRandomMeteors)
-        Me.GroupBox2.Controls.Add(Me.chkDoubleDamage)
-        Me.GroupBox2.Controls.Add(Me.chkDoubleMoney)
+        Me.GroupBox2.Controls.Add(Me.chkRandomDeaths)
+        Me.GroupBox2.Controls.Add(Me.chkChangeRows)
+        Me.GroupBox2.Controls.Add(Me.chkChangeSpeed)
         Me.GroupBox2.Location = New System.Drawing.Point(369, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(118, 84)
@@ -115,35 +117,35 @@ Partial Class War
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Options"
         '
-        'chkRandomMeteors
+        'chkRandomDeaths
         '
-        Me.chkRandomMeteors.AutoSize = True
-        Me.chkRandomMeteors.Location = New System.Drawing.Point(3, 62)
-        Me.chkRandomMeteors.Name = "chkRandomMeteors"
-        Me.chkRandomMeteors.Size = New System.Drawing.Size(101, 17)
-        Me.chkRandomMeteors.TabIndex = 2
-        Me.chkRandomMeteors.Text = "Random &deaths"
-        Me.chkRandomMeteors.UseVisualStyleBackColor = True
+        Me.chkRandomDeaths.AutoSize = True
+        Me.chkRandomDeaths.Location = New System.Drawing.Point(3, 62)
+        Me.chkRandomDeaths.Name = "chkRandomDeaths"
+        Me.chkRandomDeaths.Size = New System.Drawing.Size(101, 17)
+        Me.chkRandomDeaths.TabIndex = 2
+        Me.chkRandomDeaths.Text = "Random &deaths"
+        Me.chkRandomDeaths.UseVisualStyleBackColor = True
         '
-        'chkDoubleDamage
+        'chkChangeRows
         '
-        Me.chkDoubleDamage.AutoSize = True
-        Me.chkDoubleDamage.Location = New System.Drawing.Point(3, 39)
-        Me.chkDoubleDamage.Name = "chkDoubleDamage"
-        Me.chkDoubleDamage.Size = New System.Drawing.Size(88, 17)
-        Me.chkDoubleDamage.TabIndex = 1
-        Me.chkDoubleDamage.Text = "Change &rows"
-        Me.chkDoubleDamage.UseVisualStyleBackColor = True
+        Me.chkChangeRows.AutoSize = True
+        Me.chkChangeRows.Location = New System.Drawing.Point(3, 39)
+        Me.chkChangeRows.Name = "chkChangeRows"
+        Me.chkChangeRows.Size = New System.Drawing.Size(88, 17)
+        Me.chkChangeRows.TabIndex = 1
+        Me.chkChangeRows.Text = "Change &rows"
+        Me.chkChangeRows.UseVisualStyleBackColor = True
         '
-        'chkDoubleMoney
+        'chkChangeSpeed
         '
-        Me.chkDoubleMoney.AutoSize = True
-        Me.chkDoubleMoney.Location = New System.Drawing.Point(3, 16)
-        Me.chkDoubleMoney.Name = "chkDoubleMoney"
-        Me.chkDoubleMoney.Size = New System.Drawing.Size(95, 17)
-        Me.chkDoubleMoney.TabIndex = 0
-        Me.chkDoubleMoney.Text = "Change &speed"
-        Me.chkDoubleMoney.UseVisualStyleBackColor = True
+        Me.chkChangeSpeed.AutoSize = True
+        Me.chkChangeSpeed.Location = New System.Drawing.Point(3, 16)
+        Me.chkChangeSpeed.Name = "chkChangeSpeed"
+        Me.chkChangeSpeed.Size = New System.Drawing.Size(95, 17)
+        Me.chkChangeSpeed.TabIndex = 0
+        Me.chkChangeSpeed.Text = "Change &speed"
+        Me.chkChangeSpeed.UseVisualStyleBackColor = True
         '
         'btnStart
         '
@@ -197,6 +199,9 @@ Partial Class War
         Me.lblPlayer2Army.TabIndex = 11
         Me.lblPlayer2Army.Text = "Humans"
         '
+        'tmrGameTick
+        '
+        '
         'War
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -232,13 +237,14 @@ Partial Class War
     Friend WithEvents Label1 As Label
     Friend WithEvents txtWarName As TextBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents chkRandomMeteors As CheckBox
-    Friend WithEvents chkDoubleDamage As CheckBox
-    Friend WithEvents chkDoubleMoney As CheckBox
+    Friend WithEvents chkRandomDeaths As CheckBox
+    Friend WithEvents chkChangeRows As CheckBox
+    Friend WithEvents chkChangeSpeed As CheckBox
     Friend WithEvents btnStart As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents lblWarName As Label
     Friend WithEvents lblPlayer1Army As Label
     Friend WithEvents lblPlayer2Army As Label
+    Friend WithEvents tmrGameTick As Timer
 End Class

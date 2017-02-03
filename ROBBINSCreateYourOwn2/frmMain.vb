@@ -4,10 +4,11 @@ Option Explicit On
 ' purpose: A little vb game where two users compete to win '
 Public Class War
     Dim player1, player2 As Player
-    Dim intSpeed As Integer = 150
+    Dim intSpeed As Integer = 50
     Dim intRows As Integer = 3
     Dim intLength As Integer = 100
-    Dim bolRandomDeaths As Boolean = False
+    Dim intHealth As Integer = 3
+    Dim intTicksToReload As Integer = 15
     Dim map(intRows, intLength) As Integer
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -19,22 +20,28 @@ Public Class War
             lblPlayer1Army.Text = "Humans"
             lblPlayer2Army.Text = "Orcs"
         End If
+        If (chkChangeSpeed.Checked) Then
+            intSpeed = getNumber("Please enter a number 10-1000 for the speed (lower=faster)", "Change Speed", 10, 1000, intSpeed)
+        End If
+        If (chkChangeRows.Checked) Then
+            intRows = getNumber("Please enter a number 1-10 for the number of rows", "Change Rows", 1, 10, intRows)
+        End If
+        If (chkChangeTicksToReload.Checked) Then
+            intSpeed = getNumber("Please enter a number 1-50 for the number of ticks to reload (lower=faster)", "Change Ticks to Reload", 1, 50, intTicksToReload)
+        End If
+        If (chkChangeHealth.Checked) Then
+            intRows = getNumber("Please enter a number 1-100 for the health of each player", "Change Health", 1, 100, intHealth)
+        End If
 
         gbxConfigure.Dispose()
         Me.KeyPreview = True
 
-        player1 = New Player(10, 0, 5, 1, 2, 3)
-        player2 = New Player(10, 0, 5, 4, 5, 6)
+        player1 = New Player(intHealth, 0, intTicksToReload, 1, 2, 3)
+        player2 = New Player(intHealth, 0, intTicksToReload, 4, 5, 6)
         displayPlayer1Health()
         displayPlayer2Health()
 
-        If (chkChangeSpeed.Checked) Then
-            intSpeed = getNewSpeed()
-        End If
-        If (chkChangeRows.Checked) Then
-            intRows = getNewRows()
-        End If
-        bolRandomDeaths = chkRandomDeaths.Checked
+        ReDim map(intRows, intLength)
 
         tmrGameTick.Interval = intSpeed
         tmrGameTick.Start()
@@ -176,34 +183,19 @@ Public Class War
         Return x >= 0 And x < intLength
     End Function
 
-    Private Function getNewSpeed() As Integer
+    Private Function getNumber(ByVal strPrompt As String, ByVal strTitle As String, ByVal intLowerLimit As Integer, ByVal intUpperLimit As Integer, ByVal intDefault As Integer) As Integer
         Dim bolValid As Boolean = False
-        Dim intNewSpeed As Integer = intSpeed
+        Dim intNum As Integer = intDefault
         While Not bolValid
-            Dim strRaw As String = InputBox("Please enter a new speed (lower = faster) between 50 and 2000", "Change Speed")
-            Integer.TryParse(strRaw, intNewSpeed)
-            If (intNewSpeed >= 50 And intNewSpeed <= 2000) Then
+            Dim strRaw As String = InputBox(strPrompt, strTitle)
+            Integer.TryParse(strRaw, intNum)
+            If (intNum >= intLowerLimit And intNum <= intUpperLimit) Then
                 bolValid = True
             Else
                 MessageBox.Show("Please input valid data", "C'mon son")
             End If
         End While
-        Return intNewSpeed
-    End Function
-
-    Private Function getNewRows() As Integer
-        Dim bolValid As Boolean = False
-        Dim intNewRows As Integer = intRows
-        While Not bolValid
-            Dim strRaw As String = InputBox("Please enter a new amount of rows (1-10)", "Change Rows")
-            Integer.TryParse(strRaw, intNewRows)
-            If (intNewRows >= 1 And intNewRows <= 10) Then
-                bolValid = True
-            Else
-                MessageBox.Show("Please input valid data", "C'mon son")
-            End If
-        End While
-        Return intNewRows
+        Return intNum
     End Function
 
     Private Sub displayPlayer1Health()
@@ -227,33 +219,33 @@ Public Class War
         Select Case e.KeyChar.ToString().ToUpper()
             Case "W"
                 player1.changePosition(-1, intRows)
-            Case "Q", "E"
+            Case "S"
                 player1.changePosition(1, intRows)
             Case "A"
                 If (player1.fire()) Then
                     map(player1.getPosition(), 0) = player1.getRock()
                 End If
-            Case "S"
+            Case "D"
                 If (player1.fire()) Then
                     map(player1.getPosition(), 0) = player1.getPaper()
                 End If
-            Case "D"
+            Case "Q", "E"
                 If (player1.fire()) Then
                     map(player1.getPosition(), 0) = player1.getScissors()
                 End If
             Case "I"
                 player2.changePosition(-1, intRows)
-            Case "U", "O"
+            Case "K"
                 player2.changePosition(1, intRows)
             Case "J"
                 If (player2.fire()) Then
                     map(player2.getPosition(), intLength - 1) = player2.getRock()
                 End If
-            Case "K"
+            Case "L"
                 If (player2.fire()) Then
                     map(player2.getPosition(), intLength - 1) = player2.getPaper()
                 End If
-            Case "L"
+            Case "U", "O"
                 If (player2.fire()) Then
                     map(player2.getPosition(), intLength - 1) = player2.getScissors()
                 End If

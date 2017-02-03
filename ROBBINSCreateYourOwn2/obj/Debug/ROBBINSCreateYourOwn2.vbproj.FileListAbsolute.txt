@@ -20,3 +20,14 @@ C:\Users\19829\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROB
 C:\Users\19829\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.War.resources
 C:\Users\19829\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.Resources.resources
 C:\Users\19829\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.vbproj.GenerateResource.Cache
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\bin\Debug\ROBBINSCreateYourOwn2.exe.config
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.exe
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.xml
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.pdb
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\bin\Debug\ROBBINSCreateYourOwn2.exe
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\bin\Debug\ROBBINSCreateYourOwn2.pdb
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\bin\Debug\ROBBINSCreateYourOwn2.xml
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.vbprojResolveAssemblyReference.cache
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.War.resources
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.Resources.resources
+C:\Users\JrodManU\Documents\create-your-own-war\ROBBINSCreateYourOwn2\obj\Debug\ROBBINSCreateYourOwn2.vbproj.GenerateResource.Cache

@@ -2,10 +2,16 @@
 Option Explicit On
 
 Public Class Player
-    Private health, position, rock, paper, scissors As Integer
-    Public Sub New(ByVal health As Integer, ByVal position As Integer, ByVal rock As Integer, ByVal paper As Integer, ByVal scissors As Integer)
+    Private health, position, intTicksToReload, intTicksTillFire, rock, paper, scissors As Integer
+    Public Sub New(ByVal health As Integer, ByVal position As Integer, ByVal intTicksToReload As Integer, ByVal rock As Integer, ByVal paper As Integer, ByVal scissors As Integer)
         Me.health = health
         Me.position = position
+        Me.intTicksToReload = intTicksToReload
+        Me.rock = rock
+        Me.paper = paper
+        Me.scissors = scissors
+
+        intTicksTillFire = 0
     End Sub
 
     Public Function takeDamage() As Boolean
@@ -22,7 +28,24 @@ Public Class Player
             position = limit - 1
         End If
     End Sub
-
+    Public Sub updateReload()
+        If (intTicksTillFire > 0) Then
+            intTicksTillFire -= 1
+        End If
+    End Sub
+    Public Function getTicksTillFire() As Integer
+        Return intTicksTillFire
+    End Function
+    Public Function fire() As Boolean
+        If (intTicksTillFire = 0) Then
+            intTicksTillFire = intTicksToReload
+            Return True
+        End If
+        Return False
+    End Function
+    Public Function getHealth() As Integer
+        Return health
+    End Function
     Public Function getPosition() As Integer
         Return position
     End Function
